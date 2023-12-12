@@ -17,7 +17,6 @@ class PrestadorListCreateView(generics.ListCreateAPIView):
 class PrestadorRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Prestador.objects.all()
     serializer_class = PrestadorSerializer
-    lookup_field = 'id'
     #permission_classes = [IsAuthenticated]
 
 class PrestadorObtainTokenView(APIView):

@@ -17,8 +17,7 @@ class ClienteListCreateView(generics.ListCreateAPIView):
 class ClienteRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
-    lookup_field = 'id'
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 class ClienteObtainTokenView(APIView):
     permission_classes = [AllowAny]
 
