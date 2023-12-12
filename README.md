@@ -6,6 +6,10 @@
 /api/clientes/
 
 /api/clientes/<int:id>/
+
+/api/clientes/token/
+
+/api/clientes/logout/
 ```
 
 ## Rotas prestador
@@ -14,4 +18,8 @@
 /api/prestadores/
 
 /api/prestadores/<int:id>/
+
+/api/prestadores/token/
+
+/api/prestadores/logout/
 ```
