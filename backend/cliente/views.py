@@ -8,7 +8,6 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import status
 
-
 class ClienteListCreateView(generics.ListCreateAPIView):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
@@ -23,10 +22,10 @@ class ClienteObtainTokenView(APIView):
 
     def post(self, request, *args, **kwargs):
         email = request.data.get('email')
-        senha = request.data.get('senha')
+        password = request.data.get('password')
 
         try:
-            user = Cliente.objects.get(email=email, senha=senha)
+            user = Cliente.objects.get(email=email, password=password)
         except Cliente.DoesNotExist:
             return Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
@@ -48,7 +47,7 @@ class ClienteLogoutView(APIView):
             return Response({"error": "Refresh token is required."}, status=400)
 
         try:
-            #RefreshToken(refresh_token).blacklist()
+            RefreshToken(refresh_token).blacklist()
             return Response({"message": "Logout successful."})
         except Exception as e:
             return Response({"error": str(e)}, status=500)
