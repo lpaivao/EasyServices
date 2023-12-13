@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'cliente',
     'prestador',
+    'adm',
 ]
 
 MIDDLEWARE = [
@@ -152,4 +153,4 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-AUTH_USER_MODEL = 'cliente.Cliente'
+AUTH_USER_MODEL = 'adm.User'
