@@ -18,6 +18,13 @@ class User(AbstractUser):
     cidade = models.CharField(max_length=100, blank=True)
     bairro = models.CharField(max_length=100, blank=True)
     telefone = models.CharField(max_length=15, blank=True)
+    
+    USER_TYPE_CHOICES = [
+        ('Cliente', 'Cliente'),
+        ('Prestador', 'Prestador'),
+    ]
+    
+    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='Cliente')
 
     class Meta:
         db_table = 'user'
